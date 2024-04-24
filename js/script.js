@@ -11,6 +11,31 @@ console.log(list);
 
 let myUl = document.querySelector('ul');
 
+//prendo il pulsante add dal documento
+const addBtn = document.getElementById('add');
+
+
+//catturo un evento click
+addBtn.addEventListener('click', function(){
+    //prendo il valore inserito dall'utente a ogni click nell'input dell'aggiunta
+    const addItem = document.getElementById('addItem').value;
+    //pusho il valore nella lista
+    list.push(addItem);
+    console.log(list);
+
+    //controllo se l'item è nella lista
+    //se non c'è lo aggiungo alla lista
+    if (list.includes(addItem)) {
+        myUl.innerHTML += `
+        <li class='text-warning'>
+            ${addItem}
+        </li>    
+        `
+    }
+
+})
+
+
 //creazione ciclo while
 //creazione variabile contatore
 let counter = 0
